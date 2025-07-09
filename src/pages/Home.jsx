@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 
 // 3D Components
-import HeroScene from '../components/3D/scenes/HeroScene'
+import FintechBackground from '../components/3D/scenes/FintechBackground'
 import InvestmentRoadmap from '../components/3D/scenes/InvestmentRoadmap'
 import LoadingScreen from '../components/UI/LoadingScreen'
 import AnimatedStat from '../components/UI/AnimatedStat'
@@ -229,14 +229,17 @@ const Home = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen"
     >
-      {/* Hero Section with 3D */}
+      {/* Hero Section with Fintech 3D Background */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* 3D Background */}
-        <div className="absolute inset-0 z-0">
+        {/* Fintech 3D Background */}
+        <div className="fixed inset-0 z-0">
           <Suspense fallback={<div className="w-full h-full bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />}>
-            <HeroScene />
+            <FintechBackground />
           </Suspense>
         </div>
+
+        {/* Transparent Overlay Layer */}
+        <div className="absolute inset-0 z-5 bg-gradient-to-br from-primary-900/80 via-primary-800/70 to-primary-700/80 backdrop-blur-[1px]"></div>
 
         {/* Content Overlay */}
         <div className="relative z-10 container-custom mx-auto px-4 py-20">

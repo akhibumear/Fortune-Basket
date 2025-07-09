@@ -201,7 +201,6 @@ const Scene = () => {
           color="#f97316"
           anchorX="center"
           anchorY="middle"
-          font="/fonts/inter-bold.woff"
         >
           Fortune Basket
         </Text>
