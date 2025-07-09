@@ -77,7 +77,7 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="relative group"
+                  className="relative group nav-link"
                 >
                   <motion.div
                     whileHover={{ y: -2 }}
@@ -88,9 +88,34 @@ const Navbar = () => {
                         : 'text-gray-300 hover:text-white hover:bg-white/5'
                     }`}
                   >
-                    <Icon size={18} />
+                    <motion.div
+                      animate={isActive ? { 
+                        rotate: [0, 5, -5, 0],
+                        scale: [1, 1.1, 1]
+                      } : {}}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                    >
+                      <Icon size={18} />
+                    </motion.div>
                     <span className="font-medium">{item.name}</span>
+                    
+                    {/* Sparkle effect for active item */}
+                    {isActive && (
+                      <motion.div
+                        className="absolute -top-1 -right-1 w-2 h-2 bg-orange-400 rounded-full"
+                        animate={{ 
+                          scale: [0, 1, 0],
+                          opacity: [0, 1, 0]
+                        }}
+                        transition={{ 
+                          duration: 2,
+                          repeat: Infinity,
+                          repeatDelay: 1
+                        }}
+                      />
+                    )}
                   </motion.div>
+                  
                   {isActive && (
                     <motion.div
                       layoutId="navbar-indicator"

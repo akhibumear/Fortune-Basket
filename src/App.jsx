@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // Layout Components
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
-import LoadingScreen from './components/ui/LoadingScreen'
+import LoadingScreen from './components/UI/LoadingScreen'
+import ScrollToTop from './components/UI/ScrollToTop'
+import ScrollProgress from './components/UI/ScrollProgress'
 
 // Page Components
 import Home from './pages/Home'
@@ -18,14 +20,18 @@ import Contact from './pages/Contact'
 import { AppProvider } from './context/AppContext'
 
 // Error Boundary
-import ErrorBoundary from './components/ui/ErrorBoundary'
+import ErrorBoundary from './components/UI/ErrorBoundary'
 
 function App() {
+  // Get the base path from Vite config for GitHub Pages deployment
+  const basename = import.meta.env.MODE === 'production' ? '/Fortune-Basket' : ''
+  
   return (
     <ErrorBoundary>
       <AppProvider>
-        <Router>
+        <Router basename={basename}>
           <div className="App min-h-screen bg-primary-900 text-white">
+            <ScrollProgress />
             <Navbar />
             
             <main className="relative">
@@ -42,6 +48,7 @@ function App() {
             </main>
             
             <Footer />
+            <ScrollToTop />
           </div>
         </Router>
       </AppProvider>
