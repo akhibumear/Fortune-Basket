@@ -1,9 +1,9 @@
 {
-  "name": "fortune-basket-3d",
+  "name": "fortune-blue-bell-3d",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://akhibumear.github.io/Fortune-Basket",
+  "homepage": "https://akhibumear.github.io/Fortune-Blue-Bell",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -33,3 +33,4 @@
     "vite": "^5.0.8"
   }
 }
+ 

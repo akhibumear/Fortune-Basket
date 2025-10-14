@@ -202,7 +202,7 @@ const Scene = () => {
           anchorX="center"
           anchorY="middle"
         >
-          Fortune Basket
+          Fortune Blue Bell
         </Text>
       </Float>
 

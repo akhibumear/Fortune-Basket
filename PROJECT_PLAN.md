@@ -1,7 +1,7 @@
-# Fortune Basket - Advanced Multi-Page 3D Fintech Website
+# Fortune Blue Bell - Advanced Multi-Page 3D Fintech Website
 
 ## 🎯 Project Overview
-A cutting-edge multi-page fintech website for Fortune Basket featuring advanced 3D visualizations, sophisticated animations, and comprehensive investment services. The platform combines modern web technologies with immersive 3D experiences to make investing accessible and engaging.
+A cutting-edge multi-page fintech website for Fortune Blue Bell featuring advanced 3D visualizations, sophisticated animations, and comprehensive investment services. The platform combines modern web technologies with immersive 3D experiences to make investing accessible and engaging.
 
 ## 🛠️ Technology Stack
 
@@ -24,7 +24,7 @@ A cutting-edge multi-page fintech website for Fortune Basket featuring advanced 
 
 ## 📁 Multi-Page Architecture
 ```
-fortune-basket/
+fortune-blue-bell/
 ├── public/
 │   ├── models/           # 3D assets (.glb, .gltf)
 │   ├── textures/         # Advanced textures
@@ -305,4 +305,4 @@ const SceneManager = {
 
 ---
 
-This advanced multi-page Fortune Basket website will set new standards in fintech user experience, combining cutting-edge 3D technology with practical investment tools to create an engaging and educational platform for investors of all levels. 
+This advanced multi-page Fortune Blue Bell website will set new standards in fintech user experience, combining cutting-edge 3D technology with practical investment tools to create an engaging and educational platform for investors of all levels. 

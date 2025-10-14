@@ -250,7 +250,7 @@ const Contact = () => {
             <h3 className="text-lg font-semibold text-white mb-4">Important Information</h3>
             <div className="text-sm text-gray-400 max-w-4xl mx-auto leading-relaxed">
               <p className="mb-4">
-                <strong>Regulation:</strong> Fortune Basket is a SEBI-registered mutual fund distributor and complies with all regulations. 
+                <strong>Regulation:</strong> Fortune Blue Bell is a SEBI-registered mutual fund distributor and complies with all regulations. 
                 Your investments are held by fund houses under your name, offering an extra layer of custody safety.
               </p>
               <p>

@@ -11,7 +11,7 @@ const Testimonials = () => {
       role: "Marketing Manager",
       location: "Mumbai",
       rating: 5,
-      text: "Fortune Basket made investing easy and even fun. I can track my goals on the app and see my money grow over time. The portfolio recommendations match my risk appetite perfectly!",
+      text: "Fortune Blue Bell made investing easy and even fun. I can track my goals on the app and see my money grow over time. The portfolio recommendations match my risk appetite perfectly!",
       avatar: "PS",
       color: "bg-blue-500"
     },
@@ -20,7 +20,7 @@ const Testimonials = () => {
       role: "Software Engineer",
       location: "Bengaluru",
       rating: 5,
-      text: "As a busy professional, I love Fortune Basket's auto-SIP feature. I set it up once and forget it, knowing my investments are handled by experts. The app's insights alerts keep me informed without any extra work.",
+      text: "As a busy professional, I love Fortune Blue Bell's auto-SIP feature. I set it up once and forget it, knowing my investments are handled by experts. The app's insights alerts keep me informed without any extra work.",
       avatar: "RM",
       color: "bg-emerald-500"
     },
@@ -29,7 +29,7 @@ const Testimonials = () => {
       role: "Teacher",
       location: "Delhi",
       rating: 5,
-      text: "I was new to mutual funds and a bit scared to start. Fortune Basket's guided process and friendly support helped me understand everything. Now I feel confident planning for my child's education through SIPs.",
+      text: "I was new to mutual funds and a bit scared to start. Fortune Blue Bell's guided process and friendly support helped me understand everything. Now I feel confident planning for my child's education through SIPs.",
       avatar: "AS",
       color: "bg-purple-500"
     },
@@ -38,7 +38,7 @@ const Testimonials = () => {
       role: "Consultant",
       location: "Pune",
       rating: 5,
-      text: "The goal planner is a game-changer. I saw exactly how much I needed to save for retirement and could adjust my SIP easily. Kudos to Fortune Basket for making finance so user-friendly.",
+      text: "The goal planner is a game-changer. I saw exactly how much I needed to save for retirement and could adjust my SIP easily. Kudos to Fortune Blue Bell for making finance so user-friendly.",
       avatar: "VP",
       color: "bg-orange-500"
     },
@@ -47,7 +47,7 @@ const Testimonials = () => {
       role: "Doctor",
       location: "Hyderabad",
       rating: 5,
-      text: "Fortune Basket's tax-saving ELSS funds helped me optimize my tax planning while building wealth. The platform is transparent and the customer service is excellent.",
+      text: "Fortune Blue Bell's tax-saving ELSS funds helped me optimize my tax planning while building wealth. The platform is transparent and the customer service is excellent.",
       avatar: "MR",
       color: "bg-indigo-500"
     },
@@ -56,7 +56,7 @@ const Testimonials = () => {
       role: "Entrepreneur",
       location: "Gurgaon",
       rating: 5,
-      text: "The low-cost approach and tech-driven insights impressed me. As someone who values efficiency, Fortune Basket delivers exactly what it promises - smart investing made simple.",
+      text: "The low-cost approach and tech-driven insights impressed me. As someone who values efficiency, Fortune Blue Bell delivers exactly what it promises - smart investing made simple.",
       avatar: "AG",
       color: "bg-amber-500"
     }
@@ -99,7 +99,7 @@ const Testimonials = () => {
             What Our <span className="text-gradient">Customers Say</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Join thousands of satisfied investors who trust Fortune Basket with their financial future
+            Join thousands of satisfied investors who trust Fortune Blue Bell with their financial future
           </p>
         </motion.div>
 
@@ -255,7 +255,7 @@ const Testimonials = () => {
               Join Our Growing Community
             </h3>
             <p className="text-gray-300 mb-6">
-              Become part of thousands of investors who are building wealth with Fortune Basket
+              Become part of thousands of investors who are building wealth with Fortune Blue Bell
             </p>
             <button className="btn-primary px-8 py-3">
               Start Your Success Story

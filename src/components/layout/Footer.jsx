@@ -94,7 +94,7 @@ const Footer = () => {
                 <TrendingUp className="h-7 w-7 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">Fortune Basket</h3>
+                <h3 className="text-xl font-bold text-white">Fortune Blue Bell</h3>
                 <p className="text-sm text-gray-400">Invest with Confidence</p>
               </div>
             </Link>
@@ -235,18 +235,18 @@ const Footer = () => {
                 Past performance is no guarantee of future results.
               </p>
               <p className="mb-2">
-                <strong>Regulation:</strong> Fortune Basket is a SEBI-registered mutual fund distributor. 
+                <strong>Regulation:</strong> Fortune Blue Bell is a SEBI-registered mutual fund distributor. 
                 Your investments are held by fund houses under your name for custody safety.
               </p>
               <p>
                 <strong>Tax Disclaimer:</strong> Any tax benefits depend on individual circumstances and prevailing laws. 
-                Fortune Basket does not provide tax advice. Please consult a tax professional.
+                Fortune Blue Bell does not provide tax advice. Please consult a tax professional.
               </p>
             </div>
             
             <div className="border-t border-white/5 pt-6">
               <p className="text-xs text-gray-500">
-                © {new Date().getFullYear()} Fortune Basket. All rights reserved. | 
+                © {new Date().getFullYear()} Fortune Blue Bell. All rights reserved. | 
                 This website/app is for information purposes only and does not constitute a solicitation or offer to invest in any security. 
                 Your capital is at risk.
               </p>

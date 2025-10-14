@@ -30,7 +30,7 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-white">Fortune Basket – </span>
+              <span className="text-white">Fortune Blue Bell – </span>
               <span className="text-gradient">Invest with Confidence</span>
             </h1>
           </motion.div>

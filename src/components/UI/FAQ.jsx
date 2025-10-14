@@ -16,10 +16,10 @@ const FAQ = () => {
     },
     {
       question: "Are my investments safe?",
-      answer: "Fortune Basket is a SEBI-registered mutual fund distributor. We partner only with regulated asset management companies. Your funds are held by independent custodians, just as they would be directly with the fund. That said, all investing carries market risk – the value of your investments can go down as well as up."
+      answer: "Fortune Blue Bell is a SEBI-registered mutual fund distributor. We partner only with regulated asset management companies. Your funds are held by independent custodians, just as they would be directly with the fund. That said, all investing carries market risk – the value of your investments can go down as well as up."
     },
     {
-      question: "What fees does Fortune Basket charge?",
+      question: "What fees does Fortune Blue Bell charge?",
       answer: "We charge a simple annual fee (0.60% p.a.) to manage your portfolio, with no hidden charges. This fee is built into the platform so you always see net returns. There are no transaction fees or exit loads beyond what the funds themselves charge. We believe in full transparency."
     },
     {
@@ -39,7 +39,7 @@ const FAQ = () => {
       answer: "You can monitor your portfolio 24/7 through our real-time dashboard. Get instant reports, performance charts, and goal progress updates. We also send smart notifications to keep you informed about important developments."
     },
     {
-      question: "What makes Fortune Basket different?",
+      question: "What makes Fortune Blue Bell different?",
       answer: "We combine low-cost passive investing with smart technology and human expertise. Our platform offers goal-based planning, automated rebalancing, and transparent fee structure. We focus on index funds and ETFs to minimize costs while maximizing market exposure."
     },
     {
@@ -69,7 +69,7 @@ const FAQ = () => {
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Everything you need to know about investing with Fortune Basket
+            Everything you need to know about investing with Fortune Blue Bell
           </p>
         </motion.div>
 
@@ -205,7 +205,7 @@ const FAQ = () => {
                 <div className="text-xs text-gray-400 space-y-2">
                   <p>Investments are subject to market risks. Please read all scheme information carefully before investing.</p>
                   <p>Past performance is not indicative of future returns. No returns are guaranteed.</p>
-                  <p>Fortune Basket is registered with SEBI/AMFI and complies with all regulatory requirements.</p>
+                  <p>Fortune Blue Bell is registered with SEBI/AMFI and complies with all regulatory requirements.</p>
                 </div>
               </motion.div>
             </div>

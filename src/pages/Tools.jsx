@@ -411,7 +411,7 @@ const Tools = () => {
               Ready to Put Your Plan into Action?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Now that you've calculated your investment needs, take the next step and start investing with Fortune Basket.
+              Now that you've calculated your investment needs, take the next step and start investing with Fortune Blue Bell.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white text-orange-500 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center">

@@ -9,7 +9,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "How do I start investing?",
-      answer: "Open a Fortune Basket account online or via our app in just a few minutes. Complete a simple KYC (Know Your Customer) form and submit any required documents (like ID and proof of address). Once approved, you can immediately set up a SIP or make a lump-sum investment. Our onboarding flow and app guidance will walk you through each step."
+      answer: "Open a Fortune Blue Bell account online or via our app in just a few minutes. Complete a simple KYC (Know Your Customer) form and submit any required documents (like ID and proof of address). Once approved, you can immediately set up a SIP or make a lump-sum investment. Our onboarding flow and app guidance will walk you through each step."
     },
     {
       question: "Can I withdraw money anytime?",
@@ -20,7 +20,7 @@ const FAQ = () => {
       answer: "We are a SEBI-registered mutual fund distributor and all our fund partners are AMFI- or SEBI-regulated asset management companies. Your invested funds are held in your name by independent custodians (the fund houses or trustee companies), just as they would be if you invested directly. We never have custody of your cash or securities. That said, market risk applies: your portfolio's value can go down as well as up."
     },
     {
-      question: "What fees does Fortune Basket charge?",
+      question: "What fees does Fortune Blue Bell charge?",
       answer: "We charge a simple annual management fee (for example, 0.60% p.a.) to cover our services; there are no hidden fees or commissions. This fee is built into the platform so you always see your net returns. We do not charge separate transaction fees or exit loads beyond the nominal charges inherent in the mutual funds themselves. Our fee structure is fully transparent and competitive with other robo-advisors."
     },
     {
@@ -62,7 +62,7 @@ const FAQ = () => {
               Frequently Asked <span className="text-gradient">Questions</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-              Find answers to common questions about investing with Fortune Basket. 
+              Find answers to common questions about investing with Fortune Blue Bell. 
               Can't find what you're looking for? Contact our support team.
             </p>
 

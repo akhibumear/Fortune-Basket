@@ -61,7 +61,7 @@ const Navbar = () => {
             </motion.div>
             <div className="hidden sm:block">
               <h1 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Fortune Basket
+                Fortune Blue Bell
               </h1>
               <p className="text-xs text-gray-400 -mt-1">Invest with Confidence</p>
             </div>

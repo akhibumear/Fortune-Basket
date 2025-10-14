@@ -103,7 +103,7 @@ const Footer = () => {
                     <TrendingUp className="h-6 w-6 text-white" />
                   </div>
                   <span className="text-2xl font-bold text-gradient">
-                    Fortune Basket
+                    Fortune Blue Bell
                   </span>
                 </div>
 
@@ -198,7 +198,7 @@ const Footer = () => {
                     <strong>Market Risk:</strong> Investments are subject to market risks. Please read all scheme information and related documents carefully before investing. Past performance is not indicative of future returns.
                   </p>
                   <p>
-                    <strong>Regulation:</strong> Fortune Basket is registered with SEBI/AMFI and complies with all regulatory requirements. Your investments are held with fund houses under your name.
+                    <strong>Regulation:</strong> Fortune Blue Bell is registered with SEBI/AMFI and complies with all regulatory requirements. Your investments are held with fund houses under your name.
                   </p>
                 </div>
                 <div>
@@ -206,7 +206,7 @@ const Footer = () => {
                     <strong>No Guarantees:</strong> No warranties or representations are made about future returns. Please invest only after considering your personal goals and risk tolerance.
                   </p>
                   <p>
-                    <strong>Tax Disclaimer:</strong> Tax benefits depend on individual circumstances and prevailing laws, which may change. Fortune Basket does not provide tax advice.
+                    <strong>Tax Disclaimer:</strong> Tax benefits depend on individual circumstances and prevailing laws, which may change. Fortune Blue Bell does not provide tax advice.
                   </p>
                 </div>
               </div>
@@ -225,7 +225,7 @@ const Footer = () => {
                 transition={{ duration: 0.8 }}
                 className="text-sm text-gray-400 mb-4 lg:mb-0"
               >
-                © 2024 Fortune Basket. All rights reserved. | SEBI Reg. No: INZ000123456
+                © 2024 Fortune Blue Bell. All rights reserved. | SEBI Reg. No: INZ000123456
               </motion.div>
 
               {/* Legal Links */}

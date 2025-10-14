@@ -1,4 +1,4 @@
-# Fortune Basket - 3D Investment Journey Website
+# Fortune Blue Bell - 3D Investment Journey Website
 
 A cutting-edge 3D fintech website that visualizes the user's investment journey through an interactive 3D curved path with milestones, scroll-based animations, and comprehensive financial services information.
 
@@ -17,7 +17,7 @@ A cutting-edge 3D fintech website that visualizes the user's investment journey 
 - **Mobile First**: Fully responsive design with touch-optimized interactions
 
 ### Comprehensive Content
-- **Complete Fortune Basket Content**: All sections from the provided content integrated
+- **Complete Fortune Blue Bell Content**: All sections from the provided content integrated
 - **Interactive Calculators**: SIP, Goal Planning, Tax Saving calculators
 - **Customer Testimonials**: Rotating testimonial carousel with real customer stories
 - **Detailed FAQ**: Comprehensive FAQ section with expandable answers
@@ -122,7 +122,7 @@ src/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd fortune-basket-3d
+   cd fortune-blue-bell-3d
    ```
 
 2. **Install dependencies**
@@ -285,4 +285,4 @@ For support and questions:
 
 ---
 
-**Fortune Basket** - Making investing accessible, visual, and engaging through cutting-edge 3D technology. 
+**Fortune Blue Bell** - Making investing accessible, visual, and engaging through cutting-edge 3D technology. 

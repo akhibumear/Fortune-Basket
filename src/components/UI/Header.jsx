@@ -38,7 +38,7 @@ const Header = () => {
               <TrendingUp className="h-6 w-6 text-white" />
             </div>
             <span className="text-xl lg:text-2xl font-bold text-gradient">
-              Fortune Basket
+              Fortune Blue Bell
             </span>
           </div>
 

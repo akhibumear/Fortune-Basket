@@ -130,7 +130,7 @@ const Products = () => {
               Investment <span className="text-gradient">Products & Services</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Fortune Basket offers a full suite of mutual fund investment options, each managed to fit your goals. 
+              Fortune Blue Bell offers a full suite of mutual fund investment options, each managed to fit your goals. 
               From equity funds to systematic investment plans, we have everything you need to build wealth.
             </p>
           </motion.div>

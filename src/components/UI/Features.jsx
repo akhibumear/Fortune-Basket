@@ -129,7 +129,7 @@ const Features = () => {
               How It <span className="text-gradient">Works</span>
             </h3>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              Get started with Fortune Basket in just a few simple steps
+              Get started with Fortune Blue Bell in just a few simple steps
             </p>
           </div>
 
@@ -191,7 +191,7 @@ const Features = () => {
               <h3 className="text-2xl font-bold">Start Your Investment Journey</h3>
             </div>
             <p className="text-gray-300 mb-6">
-              Join thousands of investors who trust Fortune Basket to grow their wealth
+              Join thousands of investors who trust Fortune Blue Bell to grow their wealth
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="btn-primary px-8 py-3">

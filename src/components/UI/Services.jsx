@@ -326,7 +326,7 @@ const Services = () => {
               Ready to Start Your Investment Journey?
             </h3>
             <p className="text-gray-300 mb-6">
-              Whether you're saving regularly or investing a lump sum, Fortune Basket has a solution designed to help you achieve your financial goals.
+              Whether you're saving regularly or investing a lump sum, Fortune Blue Bell has a solution designed to help you achieve your financial goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="btn-primary px-8 py-3">

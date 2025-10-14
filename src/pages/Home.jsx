@@ -16,7 +16,6 @@ import {
 } from 'lucide-react'
 
 // 3D Components
-import FintechBackground from '../components/3D/scenes/FintechBackground'
 import InvestmentRoadmap from '../components/3D/scenes/InvestmentRoadmap'
 import LoadingScreen from '../components/UI/LoadingScreen'
 import AnimatedStat from '../components/UI/AnimatedStat'
@@ -189,7 +188,7 @@ const Home = () => {
     {
       name: "Priya S.",
       role: "Marketing Manager",
-      text: "Fortune Basket made investing easy and even fun. I can track my goals on the app and see my money grow over time. The portfolio recommendations match my risk appetite perfectly!",
+      text: "Fortune Blue Bell made investing easy and even fun. I can track my goals on the app and see my money grow over time. The portfolio recommendations match my risk appetite perfectly!",
       avatar: "PS",
       color: "bg-blue-500",
       rating: 5,
@@ -198,7 +197,7 @@ const Home = () => {
     {
       name: "Rajiv M.",
       role: "Software Engineer",
-      text: "I love Fortune Basket's auto-SIP feature. I set it up once and forget it, knowing my investments are handled by experts. The app's insights keep me informed without extra work.",
+      text: "I love Fortune Blue Bell's auto-SIP feature. I set it up once and forget it, knowing my investments are handled by experts. The app's insights keep me informed without extra work.",
       avatar: "RM",
       color: "bg-emerald-500",
       rating: 5,
@@ -207,7 +206,7 @@ const Home = () => {
     {
       name: "Anjali S.",
       role: "Teacher",
-      text: "As a beginner, Fortune Basket's guided process and support helped me learn the ropes. Now I feel confident planning for my child's education through SIPs.",
+      text: "As a beginner, Fortune Blue Bell's guided process and support helped me learn the ropes. Now I feel confident planning for my child's education through SIPs.",
       avatar: "AS",
       color: "bg-purple-500",
       rating: 5,
@@ -229,20 +228,10 @@ const Home = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen"
     >
-      {/* Hero Section with Fintech 3D Background */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Fintech 3D Background */}
-        <div className="fixed inset-0 z-0">
-          <Suspense fallback={<div className="w-full h-full bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />}>
-            <FintechBackground />
-          </Suspense>
-        </div>
-
-        {/* Transparent Overlay Layer */}
-        <div className="absolute inset-0 z-5 bg-gradient-to-br from-primary-900/80 via-primary-800/70 to-primary-700/80 backdrop-blur-[1px]"></div>
-
-        {/* Content Overlay */}
-        <div className="relative z-10 container-custom mx-auto px-4 py-20">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700">
+        {/* Content */}
+        <div className="relative container-custom mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -269,7 +258,7 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Fortune Basket is a fintech-driven robo-advisor platform that simplifies mutual fund investing. 
+                Fortune Blue Bell is a fintech-driven robo-advisor platform that simplifies mutual fund investing. 
                 Our easy online onboarding lets you sign up and complete KYC in minutes.
               </motion.p>
 
@@ -331,7 +320,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              Why Choose <span className="text-gradient">Fortune Basket</span>
+              Why Choose <span className="text-gradient">Fortune Blue Bell</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               We combine decades of financial experience with cutting-edge technology to make investing simple and effective.
@@ -453,7 +442,7 @@ const Home = () => {
                     {/* App Content */}
                     <div className="p-4 space-y-4">
                       <div className="text-center">
-                        <h3 className="text-white font-bold text-lg">Fortune Basket</h3>
+                        <h3 className="text-white font-bold text-lg">Fortune Blue Bell</h3>
                         <p className="text-gray-300 text-sm">Portfolio: ₹2,45,000</p>
                       </div>
                       
@@ -553,7 +542,7 @@ const Home = () => {
               What Our <span className="text-gradient">Investors Say</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Join thousands of satisfied investors who trust Fortune Basket with their financial future.
+              Join thousands of satisfied investors who trust Fortune Blue Bell with their financial future.
             </p>
           </motion.div>
 
@@ -662,7 +651,7 @@ const Home = () => {
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 10,000+ investors
-              </motion.span> who trust Fortune Basket for their financial future. 
+              </motion.span> who trust Fortune Blue Bell for their financial future. 
               Start with as little as ₹500 and watch your wealth grow.
             </motion.p>
 

@@ -7,7 +7,7 @@ const About = () => {
     {
       icon: Target,
       title: "Our Vision",
-      description: "We believe investing should be easy and empowering for everyone, not just experts. Fortune Basket was founded to democratize investing, bringing institutional-grade tools to everyday investors."
+      description: "We believe investing should be easy and empowering for everyone, not just experts. Fortune Blue Bell was founded to democratize investing, bringing institutional-grade tools to everyday investors."
     },
     {
       icon: Users,
@@ -42,7 +42,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="text-gradient">Fortune Basket</span>
+              About <span className="text-gradient">Fortune Blue Bell</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               A passionate group of finance professionals, data scientists, and user-experience designers 
