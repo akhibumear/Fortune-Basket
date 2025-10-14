@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { 
@@ -29,10 +29,15 @@ const Home = () => {
   const y2 = useTransform(scrollY, [0, 300], [0, -50])
   const opacity = useTransform(scrollY, [0, 200], [1, 0])
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 })
+  const lastUpdateRef = useRef(0)
 
   useEffect(() => {
     const handleMouseMove = (e) => {
+      const now = performance.now()
+      // Throttle to ~60fps max and avoid excessive re-renders
+      if (now - lastUpdateRef.current < 16) return
+      lastUpdateRef.current = now
       setMousePosition({
         x: (e.clientX / window.innerWidth) * 100,
         y: (e.clientY / window.innerHeight) * 100,
@@ -41,6 +46,18 @@ const Home = () => {
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
+
+  // Precompute particle seeds once to prevent layout shift/flicker
+  const particleSeeds = useMemo(() =>
+    Array.from({ length: 50 }).map(() => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      size: Math.random() * 4 + 1,
+      dx: Math.random() * 100 - 50,
+      dy: Math.random() * 100 - 50,
+      dur: Math.random() * 10 + 10,
+    })),
+  [])
 
   const features = [
     {
@@ -152,24 +169,24 @@ const Home = () => {
         </div>
 
         {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(50)].map((_, i) => (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {particleSeeds.map((p, i) => (
             <motion.div
               key={i}
               className="absolute rounded-full bg-blue-400/20"
               style={{
-                width: Math.random() * 4 + 1,
-                height: Math.random() * 4 + 1,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                width: p.size,
+                height: p.size,
+                left: `${p.left}%`,
+                top: `${p.top}%`,
               }}
               animate={{
-                y: [0, Math.random() * 100 - 50],
-                x: [0, Math.random() * 100 - 50],
+                y: [0, p.dy],
+                x: [0, p.dx],
                 opacity: [0, 1, 0],
               }}
               transition={{
-                duration: Math.random() * 10 + 10,
+                duration: p.dur,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
@@ -179,7 +196,7 @@ const Home = () => {
 
         {/* Mouse Follow Effect */}
         <motion.div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-30 pointer-events-none"
           animate={{
             background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(59, 130, 246, 0.15), transparent 50%)`,
           }}
@@ -188,14 +205,14 @@ const Home = () => {
 
         {/* Hero Content */}
         <motion.div 
-          className="relative z-10 container mx-auto px-4 py-20"
+          className="relative z-10 container mx-auto px-4 pt-28 pb-16"
           style={{ opacity }}
         >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={{ opacity: 1, x: 0, y: y1 }}
               transition={{ duration: 1, delay: 0.2 }}
               className="text-center lg:text-left"
             >
