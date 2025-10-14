@@ -9,7 +9,7 @@ const Navbar = () => {
   const location = useLocation()
 
   const navigationItems = [
-    { name: 'Home', path: '/', icon: TrendingUp },
+    { name: 'Home', path: '/home', icon: TrendingUp },
     { name: 'Products', path: '/products', icon: Package },
     { name: 'Tools', path: '/tools', icon: Calculator },
     { name: 'About', path: '/about', icon: Users },
@@ -48,7 +48,7 @@ const Navbar = () => {
       <div className="container-custom mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/home" className="flex items-center space-x-3 group">
             <motion.div
               whileHover={{ scale: 1.05, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
