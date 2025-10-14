@@ -57,7 +57,7 @@ const AppLayout = () => {
 
 function App() {
   // Get the base path from Vite config for GitHub Pages deployment
-  const basename = import.meta.env.MODE === 'production' ? '/Fortune-Blue-Bell' : ''
+  const basename = import.meta.env.MODE === 'production' ? '/Fortune-Basket' : ''
   
   return (
     <ErrorBoundary>
