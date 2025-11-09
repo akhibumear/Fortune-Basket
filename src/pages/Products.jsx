@@ -145,11 +145,28 @@ const Products = () => {
             {stats.map((stat, index) => {
               const Icon = stat.icon
               return (
-                <div key={index} className="card-glow p-6 text-center">
-                  <Icon className="h-8 w-8 text-orange-400 mx-auto mb-3" />
-                  <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="card-glow p-6 text-center cursor-pointer"
+                >
+                  <motion.div
+                    whileHover={{ rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Icon className="h-8 w-8 text-orange-400 mx-auto mb-3" />
+                  </motion.div>
+                  <motion.div
+                    className="text-2xl font-bold text-white mb-1"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    {stat.value}
+                  </motion.div>
                   <div className="text-gray-400 text-sm">{stat.label}</div>
-                </div>
+                </motion.div>
               )
             })}
           </motion.div>
@@ -185,9 +202,18 @@ const Products = () => {
                   whileHover={{ y: -5 }}
                   className="card-glow p-8 h-full group cursor-pointer"
                 >
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${product.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="h-8 w-8 text-white" />
-                  </div>
+                  <motion.div
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${product.gradient} flex items-center justify-center mb-6`}
+                    whileHover={{ scale: 1.15, rotate: [0, -5, 5, 0] }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <motion.div
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                    >
+                      <Icon className="h-8 w-8 text-white" />
+                    </motion.div>
+                  </motion.div>
                   
                   <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-orange-400 transition-colors">
                     {product.title}
@@ -199,10 +225,21 @@ const Products = () => {
 
                   <ul className="space-y-3 mb-8">
                     {product.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start space-x-3">
-                        <CheckCircle className="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
-                      </li>
+                      <motion.li
+                        key={featureIndex}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
+                        className="flex items-start space-x-3 group/item"
+                      >
+                        <motion.div
+                          whileHover={{ scale: 1.2, rotate: 360 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <CheckCircle className="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        </motion.div>
+                        <span className="text-gray-300 text-sm group-hover/item:text-gray-200 transition-colors">{feature}</span>
+                      </motion.li>
                     ))}
                   </ul>
 
@@ -279,13 +316,36 @@ const Products = () => {
               Choose the investment product that matches your goals and risk appetite. Our experts are here to guide you every step of the way.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/tools" className="bg-white text-orange-500 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center">
-                Use Our Calculators
-                <Calculator className="ml-2 h-5 w-5" />
-              </Link>
-              <Link to="/contact" className="bg-white/20 text-white hover:bg-white/30 px-8 py-4 rounded-lg font-semibold transition-colors">
-                Speak to an Advisor
-              </Link>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link to="/tools" className="bg-white text-orange-500 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center relative overflow-hidden group">
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <span className="relative flex items-center gap-2 text-white group-hover:text-white">
+                    Use Our Calculators
+                    <motion.div
+                      animate={{ x: [0, 3, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      <Calculator className="h-5 w-5" />
+                    </motion.div>
+                  </span>
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link to="/contact" className="bg-white/20 text-white hover:bg-white/30 px-8 py-4 rounded-lg font-semibold transition-colors relative overflow-hidden group inline-block">
+                  <motion.div
+                    className="absolute inset-0 bg-white/10"
+                    initial={{ scale: 0 }}
+                    whileHover={{ scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <span className="relative">Speak to an Advisor</span>
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>

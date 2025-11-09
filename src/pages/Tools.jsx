@@ -324,18 +324,33 @@ const Tools = () => {
             {calculators.map((calc, index) => {
               const Icon = calc.icon
               return (
-                <button
+                <motion.button
                   key={calc.id}
                   onClick={() => setActiveCalculator(calc.id)}
-                  className={`flex items-center space-x-3 px-6 py-3 rounded-lg transition-all duration-300 ${
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className={`relative flex items-center space-x-3 px-6 py-3 rounded-lg transition-all duration-300 overflow-hidden ${
                     activeCalculator === calc.id
-                      ? 'bg-orange-500 text-white'
+                      ? 'text-white'
                       : 'bg-white/10 text-gray-300 hover:bg-white/20'
                   }`}
                 >
-                  <Icon className="h-5 w-5" />
-                  <span className="font-semibold">{calc.name}</span>
-                </button>
+                  {activeCalculator === calc.id && (
+                    <motion.div
+                      layoutId="activeCalculator"
+                      className="absolute inset-0 bg-orange-500 rounded-lg"
+                      initial={false}
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  <span className="relative z-10 flex items-center space-x-3">
+                    <Icon className="h-5 w-5" />
+                    <span className="font-semibold">{calc.name}</span>
+                  </span>
+                </motion.button>
               )
             })}
           </motion.div>
@@ -414,13 +429,40 @@ const Tools = () => {
               Now that you've calculated your investment needs, take the next step and start investing with Fortune Blue Bell.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-orange-500 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center">
-                Start Investing Now
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
-              <button className="bg-white/20 text-white hover:bg-white/30 px-8 py-4 rounded-lg font-semibold transition-colors">
-                Speak to an Expert
-              </button>
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(255, 255, 255, 0.3)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-orange-500 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center relative overflow-hidden group"
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <span className="relative flex items-center gap-2 text-white group-hover:text-white">
+                  Start Investing Now
+                  <motion.div
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight className="h-5 w-5" />
+                  </motion.div>
+                </span>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/20 text-white hover:bg-white/30 px-8 py-4 rounded-lg font-semibold transition-colors relative overflow-hidden group"
+              >
+                <motion.div
+                  className="absolute inset-0 bg-white/10"
+                  initial={{ scale: 0 }}
+                  whileHover={{ scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <span className="relative">Speak to an Expert</span>
+              </motion.button>
             </div>
           </motion.div>
         </div>

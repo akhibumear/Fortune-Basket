@@ -53,29 +53,33 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
           >
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <div className="text-orange-400 mb-3">
-                <Shield className="h-8 w-8 mx-auto" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Low-Cost Funds</h3>
-              <p className="text-gray-400 text-sm">Passive index and ETF-based mutual funds so your money works harder at minimal cost</p>
-            </div>
-            
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <div className="text-amber-400 mb-3">
-                <TrendingUp className="h-8 w-8 mx-auto" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Tech-Driven Insights</h3>
-              <p className="text-gray-400 text-sm">Smart algorithms and human expertise analyze market data to keep you on track</p>
-            </div>
-            
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <div className="text-emerald-400 mb-3">
-                <Users className="h-8 w-8 mx-auto" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Goal-Based Planning</h3>
-              <p className="text-gray-400 text-sm">Personalized portfolios matched to your risk profile and financial goals</p>
-            </div>
+            {[
+              { icon: Shield, color: "text-orange-400", title: "Low-Cost Funds", desc: "Passive index and ETF-based mutual funds so your money works harder at minimal cost" },
+              { icon: TrendingUp, color: "text-amber-400", title: "Tech-Driven Insights", desc: "Smart algorithms and human expertise analyze market data to keep you on track" },
+              { icon: Users, color: "text-emerald-400", title: "Goal-Based Planning", desc: "Personalized portfolios matched to your risk profile and financial goals" }
+            ].map((benefit, index) => {
+              const Icon = benefit.icon
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/10 hover:border-orange-400/30 transition-all duration-300 group cursor-pointer"
+                >
+                  <motion.div
+                    className={`${benefit.color} mb-3`}
+                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Icon className="h-8 w-8 mx-auto" />
+                  </motion.div>
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-orange-400 transition-colors">{benefit.title}</h3>
+                  <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">{benefit.desc}</p>
+                </motion.div>
+              )
+            })}
           </motion.div>
 
           {/* CTA Buttons */}
@@ -85,13 +89,40 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            <button className="btn-primary text-lg px-8 py-4 flex items-center gap-2 group">
-              Start Your Journey
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="btn-secondary text-lg px-8 py-4">
-              View Demo
-            </button>
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(249, 115, 22, 0.4)" }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-primary text-lg px-8 py-4 flex items-center gap-2 group relative overflow-hidden"
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-600"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+              <span className="relative flex items-center gap-2">
+                Start Your Journey
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <ArrowRight className="h-5 w-5" />
+                </motion.div>
+              </span>
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-secondary text-lg px-8 py-4 relative overflow-hidden group"
+            >
+              <motion.div
+                className="absolute inset-0 bg-white/10"
+                initial={{ scale: 0 }}
+                whileHover={{ scale: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              <span className="relative">View Demo</span>
+            </motion.button>
           </motion.div>
 
           {/* Trust Indicators */}
@@ -110,13 +141,29 @@ const Hero = () => {
               {stats.map((stat, index) => {
                 const Icon = stat.icon
                 return (
-                  <div key={index} className="text-center">
-                    <div className="text-orange-400 mb-2">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    className="text-center cursor-pointer"
+                  >
+                    <motion.div
+                      className="text-orange-400 mb-2"
+                      whileHover={{ rotate: [0, -10, 10, 0] }}
+                      transition={{ duration: 0.5 }}
+                    >
                       <Icon className="h-6 w-6 mx-auto" />
-                    </div>
-                    <div className="text-2xl font-bold text-white">{stat.value}</div>
+                    </motion.div>
+                    <motion.div
+                      className="text-2xl font-bold text-white"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      {stat.value}
+                    </motion.div>
                     <div className="text-xs text-gray-400">{stat.label}</div>
-                  </div>
+                  </motion.div>
                 )
               })}
             </div>

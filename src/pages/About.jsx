@@ -61,14 +61,20 @@ const About = () => {
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="card-glow p-8"
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="card-glow p-8 group cursor-pointer"
                 >
-                  <Icon className="h-12 w-12 text-orange-400 mb-6" />
-                  <h3 className="text-2xl font-bold text-white mb-4">{value.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{value.description}</p>
+                  <motion.div
+                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Icon className="h-12 w-12 text-orange-400 mb-6 group-hover:text-orange-300 transition-colors" />
+                  </motion.div>
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors">{value.title}</h3>
+                  <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors">{value.description}</p>
                 </motion.div>
               )
             })}

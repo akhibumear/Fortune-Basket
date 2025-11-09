@@ -113,51 +113,71 @@ const Contact = () => {
               <h2 className="text-2xl font-bold text-white mb-6">Send us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     <label className="block text-white font-semibold mb-2">Name</label>
-                    <input
+                    <motion.input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      whileFocus={{ scale: 1.02, borderColor: "rgba(249, 115, 22, 0.5)" }}
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
                       placeholder="Your full name"
                       required
                     />
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     <label className="block text-white font-semibold mb-2">Phone</label>
-                    <input
+                    <motion.input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      whileFocus={{ scale: 1.02, borderColor: "rgba(249, 115, 22, 0.5)" }}
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
                       placeholder="Your phone number"
                     />
-                  </div>
+                  </motion.div>
                 </div>
 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
                   <label className="block text-white font-semibold mb-2">Email</label>
-                  <input
+                  <motion.input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    whileFocus={{ scale: 1.02, borderColor: "rgba(249, 115, 22, 0.5)" }}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
                     placeholder="your.email@example.com"
                     required
                   />
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
                   <label className="block text-white font-semibold mb-2">Subject</label>
-                  <select
+                  <motion.select
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    whileFocus={{ scale: 1.02, borderColor: "rgba(249, 115, 22, 0.5)" }}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
                     required
                   >
                     <option value="">Select a subject</option>
@@ -166,30 +186,48 @@ const Contact = () => {
                     <option value="sip-planning">SIP Planning</option>
                     <option value="tax-saving">Tax Saving Investments</option>
                     <option value="general-inquiry">General Inquiry</option>
-                  </select>
-                </div>
+                  </motion.select>
+                </motion.div>
 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
                   <label className="block text-white font-semibold mb-2">Message</label>
-                  <textarea
+                  <motion.textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={5}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
+                    whileFocus={{ scale: 1.02, borderColor: "rgba(249, 115, 22, 0.5)" }}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none transition-all duration-300"
                     placeholder="Tell us how we can help you..."
                     required
                   />
-                </div>
+                </motion.div>
 
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(249, 115, 22, 0.4)" }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full btn-primary py-4 flex items-center justify-center"
+                  className="w-full btn-primary py-4 flex items-center justify-center relative overflow-hidden group"
                 >
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-600"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <span className="relative flex items-center gap-2">
+                    <motion.div
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      <Send className="h-5 w-5" />
+                    </motion.div>
+                    Send Message
+                  </span>
                 </motion.button>
               </form>
             </motion.div>

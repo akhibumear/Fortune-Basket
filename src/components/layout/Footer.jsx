@@ -66,18 +66,32 @@ const Footer = () => {
               Get expert investment tips, market updates, and exclusive offers delivered to your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
+              <motion.input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                whileFocus={{ scale: 1.02, borderColor: "rgba(249, 115, 22, 0.5)" }}
+                className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
               />
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(249, 115, 22, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-primary px-6 py-3 flex items-center justify-center"
+                className="btn-primary px-6 py-3 flex items-center justify-center relative overflow-hidden group"
               >
-                Subscribe
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-600"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <span className="relative flex items-center gap-2">
+                  Subscribe
+                  <motion.div
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </motion.div>
+                </span>
               </motion.button>
             </div>
           </motion.div>
@@ -125,14 +139,31 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-6">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
-                <li key={index}>
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
                   <Link 
                     to={link.path}
-                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200 inline-block"
                   >
-                    {link.name}
+                    <motion.span
+                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-2"
+                    >
+                      {link.name}
+                      <motion.span
+                        initial={{ opacity: 0, x: -5 }}
+                        whileHover={{ opacity: 1, x: 0 }}
+                        className="text-orange-400"
+                      >
+                        →
+                      </motion.span>
+                    </motion.span>
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
@@ -141,14 +172,31 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-6">Products</h4>
             <ul className="space-y-3">
               {footerLinks.products.map((link, index) => (
-                <li key={index}>
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
                   <Link 
                     to={link.path}
-                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200 inline-block"
                   >
-                    {link.name}
+                    <motion.span
+                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-2"
+                    >
+                      {link.name}
+                      <motion.span
+                        initial={{ opacity: 0, x: -5 }}
+                        whileHover={{ opacity: 1, x: 0 }}
+                        className="text-orange-400"
+                      >
+                        →
+                      </motion.span>
+                    </motion.span>
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
@@ -157,14 +205,31 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-6">Tools</h4>
             <ul className="space-y-3">
               {footerLinks.tools.map((link, index) => (
-                <li key={index}>
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
                   <Link 
                     to={link.path}
-                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200 inline-block"
                   >
-                    {link.name}
+                    <motion.span
+                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-2"
+                    >
+                      {link.name}
+                      <motion.span
+                        initial={{ opacity: 0, x: -5 }}
+                        whileHover={{ opacity: 1, x: 0 }}
+                        className="text-orange-400"
+                      >
+                        →
+                      </motion.span>
+                    </motion.span>
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
@@ -173,14 +238,31 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-6">Support</h4>
             <ul className="space-y-3">
               {footerLinks.support.map((link, index) => (
-                <li key={index}>
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
                   <Link 
                     to={link.path}
-                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-orange-400 transition-colors duration-200 inline-block"
                   >
-                    {link.name}
+                    <motion.span
+                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-2"
+                    >
+                      {link.name}
+                      <motion.span
+                        initial={{ opacity: 0, x: -5 }}
+                        whileHover={{ opacity: 1, x: 0 }}
+                        className="text-orange-400"
+                      >
+                        →
+                      </motion.span>
+                    </motion.span>
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>

@@ -145,23 +145,33 @@ const Services = () => {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="bg-primary-800/50 rounded-xl p-2 backdrop-blur-sm">
+          <div className="bg-primary-800/50 rounded-xl p-2 backdrop-blur-sm relative">
             {[
               { id: 'products', label: 'Investment Products' },
               { id: 'goals', label: 'Goal-Based Planning' },
               { id: 'calculators', label: 'Tools & Calculators' }
             ].map((tab) => (
-              <button
+              <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`relative px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                   activeTab === tab.id
-                    ? 'bg-orange-500 text-white shadow-lg'
+                    ? 'text-white'
                     : 'text-gray-300 hover:text-white'
                 }`}
               >
-                {tab.label}
-              </button>
+                {activeTab === tab.id && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-orange-500 rounded-lg shadow-lg"
+                    initial={false}
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">{tab.label}</span>
+              </motion.button>
             ))}
           </div>
         </div>
