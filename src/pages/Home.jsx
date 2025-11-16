@@ -23,6 +23,16 @@ import {
 } from 'lucide-react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 
+// Helper function to convert hex to RGB
+const hexToRgb = (hex) => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null
+}
+
 const Home = () => {
   const { scrollY } = useScroll()
   const y1 = useTransform(scrollY, [0, 300], [0, 100])
@@ -49,14 +59,58 @@ const Home = () => {
 
   // Precompute particle seeds once to prevent layout shift/flicker
   const particleSeeds = useMemo(() =>
-    Array.from({ length: 50 }).map(() => ({
-      left: Math.random() * 100,
-      top: Math.random() * 100,
-      size: Math.random() * 4 + 1,
-      dx: Math.random() * 100 - 50,
-      dy: Math.random() * 100 - 50,
-      dur: Math.random() * 10 + 10,
-    })),
+    Array.from({ length: 100 }).map(() => {
+      const colors = [
+        { main: '#60a5fa', glow: '#3b82f6' }, // blue-400, blue-600
+        { main: '#a78bfa', glow: '#9333ea' }, // purple-400, purple-600
+        { main: '#f472b6', glow: '#db2777' }, // pink-400, pink-600
+        { main: '#22d3ee', glow: '#0891b2' }, // cyan-400, cyan-600
+        { main: '#818cf8', glow: '#4f46e5' }, // indigo-400, indigo-600
+        { main: '#a78bfa', glow: '#7c3aed' }, // violet-400, violet-600
+      ]
+      const colorSet = colors[Math.floor(Math.random() * colors.length)]
+      return {
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        size: Math.random() * 8 + 4, // Increased from 1-5 to 4-12 pixels
+        dx: Math.random() * 100 - 50,
+        dy: Math.random() * 100 - 50,
+        dur: Math.random() * 10 + 10,
+        color: colorSet.main,
+        glowColor: colorSet.glow,
+        opacity: Math.random() * 0.4 + 0.3, // 0.3 to 0.7 opacity
+        blur: Math.random() * 2 + 1, // 1-3px blur for glow effect
+      }
+    }),
+  [])
+
+  // Precompute currency symbol seeds
+  const currencySymbols = useMemo(() =>
+    Array.from({ length: 30 }).map(() => {
+      const symbols = ['₹', '$', '€', '£', '¥']
+      const symbol = symbols[Math.floor(Math.random() * symbols.length)]
+      const colors = [
+        { text: '#fbbf24', glow: '#f59e0b' }, // amber-400, amber-500
+        { text: '#34d399', glow: '#10b981' }, // emerald-400, emerald-500
+        { text: '#60a5fa', glow: '#3b82f6' }, // blue-400, blue-600
+        { text: '#a78bfa', glow: '#9333ea' }, // purple-400, purple-600
+        { text: '#f472b6', glow: '#db2777' }, // pink-400, pink-600
+      ]
+      const colorSet = colors[Math.floor(Math.random() * colors.length)]
+      return {
+        symbol: symbol,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        size: Math.random() * 20 + 24, // 24-44px font size
+        dx: Math.random() * 80 - 40,
+        dy: Math.random() * 80 - 40,
+        dur: Math.random() * 15 + 15, // 15-30 seconds
+        rotation: Math.random() * 360,
+        color: colorSet.text,
+        glowColor: colorSet.glow,
+        opacity: Math.random() * 0.3 + 0.2, // 0.2 to 0.5 opacity
+      }
+    }),
   [])
 
   const features = [
@@ -170,28 +224,76 @@ const Home = () => {
 
         {/* Floating Particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {particleSeeds.map((p, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full bg-blue-400/20"
-              style={{
-                width: p.size,
-                height: p.size,
-                left: `${p.left}%`,
-                top: `${p.top}%`,
-              }}
-              animate={{
-                y: [0, p.dy],
-                x: [0, p.dx],
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: p.dur,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
+          {particleSeeds.map((p, i) => {
+            const rgb = hexToRgb(p.color)
+            const glowRgb = hexToRgb(p.glowColor)
+            
+            return (
+              <motion.div
+                key={i}
+                className="absolute rounded-full"
+                style={{
+                  width: `${p.size}px`,
+                  height: `${p.size}px`,
+                  left: `${p.left}%`,
+                  top: `${p.top}%`,
+                  background: rgb ? `radial-gradient(circle, rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${p.opacity}), transparent 70%)` : p.color,
+                  boxShadow: glowRgb ? `0 0 ${p.blur * 3}px ${p.blur * 1.5}px rgba(${glowRgb.r}, ${glowRgb.g}, ${glowRgb.b}, 0.6)` : `0 0 ${p.blur * 3}px ${p.blur * 1.5}px ${p.glowColor}60`,
+                  filter: `blur(${p.blur * 0.5}px)`,
+                }}
+                animate={{
+                  y: [0, p.dy],
+                  x: [0, p.dx],
+                  opacity: [0, p.opacity, 0],
+                  scale: [0.8, 1.2, 0.8],
+                }}
+                transition={{
+                  duration: p.dur,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            )
+          })}
+        </div>
+
+        {/* Floating Currency Symbols */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {currencySymbols.map((symbol, i) => {
+            const rgb = hexToRgb(symbol.color)
+            const glowRgb = hexToRgb(symbol.glowColor)
+            
+            return (
+              <motion.div
+                key={`symbol-${i}`}
+                className="absolute font-bold select-none"
+                style={{
+                  left: `${symbol.left}%`,
+                  top: `${symbol.top}%`,
+                  fontSize: `${symbol.size}px`,
+                  color: symbol.color,
+                  textShadow: glowRgb 
+                    ? `0 0 ${symbol.size * 0.5}px rgba(${glowRgb.r}, ${glowRgb.g}, ${glowRgb.b}, 0.8), 0 0 ${symbol.size}px rgba(${glowRgb.r}, ${glowRgb.g}, ${glowRgb.b}, 0.4)`
+                    : `0 0 ${symbol.size * 0.5}px ${symbol.glowColor}80`,
+                  filter: 'drop-shadow(0 0 3px rgba(0,0,0,0.3))',
+                }}
+                animate={{
+                  y: [0, symbol.dy],
+                  x: [0, symbol.dx],
+                  opacity: [0, symbol.opacity, 0],
+                  scale: [0.5, 1, 0.5],
+                  rotate: [symbol.rotation, symbol.rotation + 360],
+                }}
+                transition={{
+                  duration: symbol.dur,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                {symbol.symbol}
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* Mouse Follow Effect */}

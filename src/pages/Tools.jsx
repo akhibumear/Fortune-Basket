@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Calculator, 
   Target, 
@@ -361,56 +361,83 @@ const Tools = () => {
       <section className="section-padding bg-primary-800">
         <div className="container-custom mx-auto">
           {/* Active Calculator Header */}
-          <motion.div
-            key={activeCalculator}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            {(() => {
-              const calc = calculators.find(c => c.id === activeCalculator)
-              const Icon = calc.icon
-              return (
-                <>
-                  <div className={`w-20 h-20 bg-gradient-to-r ${calc.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
-                    <Icon className="h-10 w-10 text-white" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-white mb-4">{calc.name}</h2>
-                  <p className="text-gray-300 text-lg">{calc.description}</p>
-                </>
-              )
-            })()}
-          </motion.div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCalculator}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.4 }}
+              className="text-center mb-12"
+            >
+              {(() => {
+                const calc = calculators.find(c => c.id === activeCalculator)
+                if (!calc) return null
+                const Icon = calc.icon
+                return (
+                  <>
+                    <motion.div
+                      className={`w-20 h-20 bg-gradient-to-r ${calc.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6`}
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ duration: 0.5, type: "spring" }}
+                    >
+                      <Icon className="h-10 w-10 text-white" />
+                    </motion.div>
+                    <h2 className="text-3xl font-bold text-white mb-4">{calc.name}</h2>
+                    <p className="text-gray-300 text-lg">{calc.description}</p>
+                  </>
+                )
+              })()}
+            </motion.div>
+          </AnimatePresence>
 
           {/* Calculator Component */}
-          <motion.div
-            key={activeCalculator}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {activeCalculator === 'sip' && <SIPCalculator />}
-            {activeCalculator === 'goal' && <GoalPlanner />}
-            {activeCalculator === 'lumpsum' && (
-              <div className="text-center py-12">
-                <div className="text-gray-400 mb-4">Lump Sum Calculator</div>
-                <div className="text-white">Coming Soon...</div>
-              </div>
-            )}
-            {activeCalculator === 'tax' && (
-              <div className="text-center py-12">
-                <div className="text-gray-400 mb-4">Tax Saving Calculator</div>
-                <div className="text-white">Coming Soon...</div>
-              </div>
-            )}
-            {activeCalculator === 'retirement' && (
-              <div className="text-center py-12">
-                <div className="text-gray-400 mb-4">Retirement Planner</div>
-                <div className="text-white">Coming Soon...</div>
-              </div>
-            )}
-          </motion.div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCalculator}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -30, scale: 0.95 }}
+              transition={{ duration: 0.4 }}
+            >
+              {activeCalculator === 'sip' && <SIPCalculator key="sip" />}
+              {activeCalculator === 'goal' && <GoalPlanner key="goal" />}
+              {activeCalculator === 'lumpsum' && (
+                <motion.div
+                  key="lumpsum"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center py-12"
+                >
+                  <div className="text-gray-400 mb-4">Lump Sum Calculator</div>
+                  <div className="text-white">Coming Soon...</div>
+                </motion.div>
+              )}
+              {activeCalculator === 'tax' && (
+                <motion.div
+                  key="tax"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center py-12"
+                >
+                  <div className="text-gray-400 mb-4">Tax Saving Calculator</div>
+                  <div className="text-white">Coming Soon...</div>
+                </motion.div>
+              )}
+              {activeCalculator === 'retirement' && (
+                <motion.div
+                  key="retirement"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center py-12"
+                >
+                  <div className="text-gray-400 mb-4">Retirement Planner</div>
+                  <div className="text-white">Coming Soon...</div>
+                </motion.div>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 

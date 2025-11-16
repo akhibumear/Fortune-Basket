@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 // Layout Components
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
-import LoadingScreen from './components/UI/LoadingScreen'
-import ScrollToTop from './components/UI/ScrollToTop'
-import ScrollProgress from './components/UI/ScrollProgress'
+import LoadingScreen from './components/ui/LoadingScreen'
+import ScrollToTop from './components/ui/ScrollToTop'
+// import ScrollProgress from './components/ui/ScrollProgress'
 
 // Page Components
 import Landing from './pages/Landing'
@@ -22,7 +22,7 @@ import Contact from './pages/Contact'
 import { AppProvider } from './context/AppContext'
 
 // Error Boundary
-import ErrorBoundary from './components/UI/ErrorBoundary'
+import ErrorBoundary from './components/ui/ErrorBoundary'
 
 // Page transition variants
 const pageVariants = {
@@ -58,7 +58,7 @@ const AppLayout = () => {
 
   return (
     <div className="App min-h-screen bg-primary-900 text-white">
-      {!isLandingPage && <ScrollProgress />}
+      {/* {!isLandingPage && <ScrollProgress />} */}
       {!isLandingPage && <Navbar />}
       
       <main className="relative">
